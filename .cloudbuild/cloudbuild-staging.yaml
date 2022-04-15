@@ -10,13 +10,14 @@ steps:
   - |
     cat << EOF > secret.yaml
     env_variables:
-      MONGO_DSN: $_MONGO_DSN
+      MONGO_DSN: $_MYSQL_DSN
     EOF
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/$PROJECT_ID/cvid-api']
   # deploy container image to Cloud Run
 - name: 'gcr.io/cloud-builders/gcloud'
-  args: ['run', 'deploy','secret.yaml', '--allow-unauthenticated']
+  #args: ['run', 'deploy', 'cvid-api', '--image', 'gcr.io/$PROJECT_ID/cvid-api:$BRANCH_NAME', '--region', 'asia-northeast1', '--allow-unauthenticated']
+  args: ["app", "deploy","secret.yaml","--version=$BRANCH_NAME","--no-promote","--no-cache","--project=cvid-api"]
   env:
   - 'PORT=8080'
 images:
