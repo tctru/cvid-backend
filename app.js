@@ -23,15 +23,8 @@ app.use(function(req, res, next) {
   next();
 });
 var index = require('./routes/index');
-var filemanager = require('./routes/filemanager');
 var users = require('./routes/users');
 var register = require('./routes/register');
-var newscats = require('./routes/newscats');
-var newspages = require('./routes/newspages');
-var newscats = require('./routes/newscats');
-var products = require('./routes/products');
-var newscontents = require('./routes/newscontents');
-var banners = require('./routes/banners');
 global.__basedir = __dirname;
 app.set('views', path.join(__dirname, 'views'));
 app.engine('handlebars', exphbs({defaultLayout:'layout'}));
@@ -102,15 +95,7 @@ app.use(function (req, res, next) {
         next();
     }
 });
-app.use('/newscats', newscats);
-app.use('/filemanager', filemanager);
 app.use('/register', register);
-app.use('/newscats', newscats);
-app.use('/newspages', newspages);
-app.use('/newscontents', newscontents);
-app.use('/banners', banners);
-app.use('/products', products);
-
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

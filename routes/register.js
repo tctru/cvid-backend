@@ -101,7 +101,6 @@ router.post('/edituserres', function(req, res){
 	var password = req.body.password;
 	var type = req.body.type;
 	var status = req.body.status;
-
 	if(password==''){
 	
 		var editUser = {
@@ -142,12 +141,7 @@ router.post('/edituserres', function(req, res){
 		else{
 			res.send('ok');
 		}
-		
 	}
-
-	
-
-	
   	res.send('ok');
 });
 router.post('/deluserres', function(req, res){
