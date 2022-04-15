@@ -14,4 +14,4 @@ images:
 - gcr.io/$PROJECT_ID/cvid-api
 timeout: 1200s
 substitutions:
-  MONGO_DSN: $_MONGO_DSN
+  _MY_VARIABLE: $_MONGO_DSN
