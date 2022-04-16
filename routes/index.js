@@ -6,7 +6,7 @@ var cors = require('cors')
 router.get('/', function(req, res, next) {
   let url = process.env.HOST
   res.json({
-    data:url
+    data:"Test"
   });
 });
 module.exports = router;
